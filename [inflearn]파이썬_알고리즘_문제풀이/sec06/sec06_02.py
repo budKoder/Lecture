@@ -30,6 +30,22 @@ def postOrder(x):
         print(x, end=' ')
 
 
+# solution
+# 부모 : x / 왼쪽자식 : x*2 / 오른쪽자식 : x*2+1
+# 전위순회 : root > left > right
+# 중위순회 : left > root > right
+# 후위순회 : left > right > root
+def solution(v):
+    if v > 7:
+        return
+    else:
+        # print(v, end=' ')   # 전위순회
+        solution(v*2)
+        # print(v, end=' ')   # 중위순회
+        solution(v*2+1)
+        # print(v, end=' ')   # 후위순회
+
+
 if __name__ == "__main__":
     n = int(input())
     print("전위순회 출력 : ", end='')
@@ -38,3 +54,5 @@ if __name__ == "__main__":
     inOrder(1)
     print("\n후위순회 출력 : ", end='')
     postOrder(1)
+    print()
+    solution(1)
